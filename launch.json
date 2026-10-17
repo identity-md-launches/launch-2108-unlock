@@ -1,0 +1,24 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "UnlockToken",
+    "name": "UNLOCK",
+    "symbol": "UNLK",
+    "decimals": 18,
+    "constructorArgs": [],
+    "totalSupply": "1000000000000000000000000000"
+  },
+  "contracts": [],
+  "pool": {
+    "pairedCurrency": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "economics": {
+    "poolBps": 8000,
+    "initialMarketCapWei": "3500000000000000000000",
+    "remainderTo": "0xd380a8b40fcea7c0a699ff0d8232a264b37a2f9f"
+  },
+  "notes": "UnlockToken (src/UnlockToken.sol) is the requester's UNLOCK (UNLK) token: an unmodified OpenZeppelin Contracts v5.0.2 ERC-20 with 18 decimals and no constructor parameters. Its constructor mints the whole supply of 1,000,000,000 UNLK (1000000000000000000000000000 minor units) once to msg.sender, which is the launch factory, and nothing can mint afterwards. There is no owner, administrator, pause, blacklist, burnFrom, seizure, upgrade path or initializer; transfers deliver the exact amount with no fee, burn or rebase, so the factory's transfer to the distributor, the distributor's claims, the pool seed and swaps through the PoolManager all move exactly what they say. The launch deploys no application contracts. The pool pairs UNLK with IMD (0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7) on Ethereum at the launch policy's 1.25% fee with tick spacing 60; pool.initialPrice is provenance only, the deployer derives the opening price from economics.initialMarketCapWei (3,500 IMD for the whole supply) and totalSupply. Economics are the requester's: 80% of the supply seeds the pool and the remainder of the requester's share goes to 0xd380a8b40fcea7c0a699ff0d8232a264b37a2f9f; the swarm's 10% is taken by the factory and is not written here."
+}
